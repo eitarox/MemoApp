@@ -8,7 +8,7 @@ class MemoEditScreen extends React.Component {
     return (
       <View style={styles.container}>
         <TextInput style={styles.memoEditInput} multiline value="Hi" />
-        <CircleButton>
+        <CircleButton onPress={() => { this.props.navigation.goBack(); }}>
           {'\uf00c'}
         </CircleButton>
       </View>
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#fff',
   },
   memoEditInput: {
     backgroundColor: '#ddd',
