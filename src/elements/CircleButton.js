@@ -27,7 +27,7 @@ class CircleButton extends React.Component {
     }
 
     return (
-      <TouchableHighlight style={[styles.container, style]} onPress={onPress} underlayColor='transparent'>
+      <TouchableHighlight style={[styles.container, style]} onPress={onPress} underlayColor="transparent">
         <View style={[styles.circleButton, { backgroundColor: bgColor }]}>
           {
             this.state.fontLoaded ? (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import firebase from 'firebase';
 
 class LoginScreen extends React.Component {
   state = {
@@ -9,7 +10,14 @@ class LoginScreen extends React.Component {
 
   // eslint-disable-next-line
   handleSubmit() {
-
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((user) => {
+        console.log('Success!', user);
+        this.props.navigation.navigate('Home');
+      })
+      .chatch((error) => {
+        console.log('Error!', error);
+      });
   }
 
   render() {
