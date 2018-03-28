@@ -15,7 +15,7 @@ class LoginScreen extends React.Component {
         console.log('Success!', user);
         this.props.navigation.navigate('Home');
       })
-      .chatch((error) => {
+      .catch((error) => {
         console.log('Error!', error);
       });
   }
