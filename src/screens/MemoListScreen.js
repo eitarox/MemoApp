@@ -16,11 +16,11 @@ class MemoListScreen extends React.Component {
     db.collection(`users/${currentUser.uid}/memos`)
       .get()
       .then((snapshot) => {
-        const tempmemoList = [];
+        const memoList = [];
         snapshot.forEach((doc) => {
-          tempmemoList.push(doc.data());
+          memoList.push({ ...doc.data(), key: doc.id });
         });
-        this.setState({ memoList: tempmemoList });
+        this.setState({ memoList });
       })
       .catch((error) => {
         console.log(error);
