@@ -8,7 +8,6 @@ class LoginScreen extends React.Component {
     password: '123456',
   }
 
-  // eslint-disable-next-line
   handleSubmit() {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {

@@ -7,13 +7,21 @@ import CircleButton from '../elements/CircleButton';
 
 class MemoListScreen extends React.Component {
   state ={
-    memoList: {},
+    memoList: [],
   }
 
   componentWillMount() {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     db.collection(`users/${currentUser.uid}/memos`)
+      .onSnapshot((snapshot) => {
+        const memoList = [];
+        snapshot.forEach((doc) => {
+          memoList.push({ ...doc.data(), key: doc.id });
+        });
+        this.setState({ memoList });
+      });
+    /*
       .get()
       .then((snapshot) => {
         const memoList = [];
@@ -25,10 +33,12 @@ class MemoListScreen extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+      */
   }
   handlePress() {
     this.props.navigation.navigate('MemoCreate');
   }
+
   render() {
     return (
       <View style={styles.container}>
