@@ -49,6 +49,8 @@ class MemoEditScreen extends React.Component {
           multiline
           value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
+          underlineColorAndroid="transparent"
+          textAlignVertical="top"
         />
         <CircleButton onPress={this.handlePress.bind(this)}>
           {'\uf00c'}
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   memoEditInput: {
-    backgroundColor: '#ddd',
+    backgroundColor: '#fff',
     flex: 1,
     paddingTop: 32,
     paddingLeft: 16,
